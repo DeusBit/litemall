@@ -1,285 +1,264 @@
-# 更新日志
+# Update log
 
 ## V 1.7.0
  
-*2020-02-15* 支持docker部署、售后管理、通知管理、数据库七天备份。
+* 2020-02-15 * Supports docker deployment, after-sales management, notification management, and database backup for seven days.
 
-#### Bug 修复
+#### Bug fixes
 
-  * `小商城`后端接口部分存在水平越权漏洞
-  * `小商城`验证码未超时仍会发送验证码
-  * `小商城`显示管理员评论回复（#340 by sunyinggang）
-  * `管理后台`管理员评论回复（#340 by sunyinggang）
-  * `轻商城`添加收货地址返回不正确（#320 by kevinleeex）
+  * `Small mall` back-end interface part has horizontal unauthorized loopholes
+  * `Small Mall` verification code will still send verification code before timeout
+  * `Small Mall` shows administrator comment reply (# 340 by sunyinggang)
+  * `Management background` Administrator comment reply (# 340 by sunyinggang)
+  * `Light Mall` returns incorrect shipping address (# 320 by kevinleeex)
 
-#### 优化
+#### Optimization
  
-  * `管理后台`专题支持排序、批量删除
-  * `基础系统`数据库四个表索引（#328 #330 #332 #334 by wtune）
+  * `Management background` topic supports sorting and batch deletion
+  * `Base system` database with four table indexes (# 328 # 330 # 332 # 334 by wtune)
   
-#### 新特性
+#### New Features
   
-  * `基础系统`支持docker部署（参考实现 #321 by yuana1）
-  * `基础系统`自动备份7天数据到backup文件夹
-  * `管理后台`通知中心和通知管理
-  * `管理后台`登录页面增加版权内容
-  * `管理后台`售后管理
-  * `小商城`订单售后列表、售后详情、申请售后
-  * `轻商城`实现账号注册功能（#324 by yelongbao）
+  * `Base system` supports docker deployment (reference implementation # 321 by yuana1)
+  * `Base System` automatically backs up 7 days of data to the backup folder
+  * `Management background` Notification Center and Notification Management
+  * `Management background` login page adds copyright content
+  * `Management background` After-sales management
+  * `Small Mall` order after-sale list, after-sale details, after-sale application
+  * `Light Mall` for account registration (# 324 by yelongbao)
 
 ## V 1.6.1
  
-*2020-01-01*
+* 2020-01-01 *
 
-#### Bug 修复
+#### Bug fixes
 
-  * `基础系统`删除不必要的Bean注解，导致不必要的实例化。
+  * `Base system` deletes unnecessary bean annotations, resulting in unnecessary instantiation.
   
 ## V 1.6.0
  
-*2019-12-31*，优化团购实现，删除微信模板实现。
+* 2019-12-31 *, optimize group purchase realization, delete WeChat template realization.
 
-#### Bug 修复
+#### Bug fixes
 
-  * `管理后台`修复查看商品详情时, 图片溢出（#305 by zaoangod）
+  * `Management background` Fix image overflow when viewing product details (# 305 by zaoangod)
 
-#### 优化
+#### Optimization
  
-  * `小商城`重构团购实现
-  * `小商城`删除微信模板实现
-  * `管理后台`优化查询区域速度（# by）
-  * `管理后台`更新vue-element-admin框架版本4.2.1
+  * `Small mall` restructuring group purchase implementation
+  * `Small Mall` delete WeChat template implementation
+  * `Management background` optimize query area speed (# by)
+  * `Management background` updated vue-element-admin framework version 4.2.1
 
-#### 新特性
+#### New Features
   
-  * `小商城`尽可能替换vant图标
-  * `小商城`首页banner添加产品跳转（#299 by staneychan)
-  * `小商城`发送邮件通知使用ssl方式（#307 by jessonxiang）
+  * `Small Mall` Replace vant icon as much as possible
+  * `Small Mall` Home Banner Add Product Jump (# 299 by staneychan)
+  * `小 商城` uses ssl to send email notifications (# 307 by jessonxiang)
    
 ## V 1.5.0
  
-*2019-11-15*， 持续优化轻商城模块，以及推荐项目Flutter_Mall
+* 2019-11-15 *, continue to optimize the light mall module, and the recommended project Flutter_Mall
 
-#### Bug 修复
+#### Bug fixes
 
-  * `小商城`优惠券绑定绑定优惠券ID(#157 by @beaver383)
-  * `小商城`评论列表不能正确显示
-  * `轻商城`修正取消订单接口 (#256 by @1037621594)
+  * `小 商城` coupon binding binding coupon ID (# 157 by @ beaver383)
+  * `Small Mall` comment list does not display correctly
+  * `Light Mall` revised cancel order interface (# 256 by @ 1037621594)
   
-#### 优化
+#### Optimization
  
-  * `小商城`采用延迟队列实现支付超时取消订单功能（参考#275 by @alexzhu0592）
-  * `小商城`分享按钮可选配置 (#239 by @galenzhao)
+  * `Small Mall` uses delay queue to realize payment overtime cancellation function (refer to # 275 by @ alexzhu0592)
+  * `Small mall` share button optional configuration (# 239 by @galenzhao)
 
-#### 新特性
+#### New Features
   
-  * `基础系统`支持阿里云短信
-  * `轻商城`接入微信支付H5支付 (#291 by @beaver383) 
-  * `小商城`团购拼团超期取消 (#284 by @beaver383)
-  * `管理后台`订单详情新增打印 (#274 by @fanchenggang )
-  * README文档推荐项目Flutter_Mall
+  * `Basic System` supports Alibaba Cloud SMS
+  * `Light Mall` access to WeChat payment H5 payment (# 291 by @ beaver383)
+  * `Small Mall` group purchase group canceled overdue (# 284 by @ beaver383)
+  * Add print of `Management background` order details (# 274 by @fanchenggang)
+  * README document recommendation item Flutter_Mall
   
 ## V 1.4.0
  
-*2019-05-16*，支持移动端轻商城
+* 2019-05-16 *, support mobile terminal light mall
 
-#### Bug 修复
+#### Bug fixes
 
-  * `小商场`购物车和订单的商品数量必须正整数
-  * `小商城`微信支付回调校验失败通知信息
-  * `小商城`收货地址采用userId和id联合查询
-  * `管理后台`管理员不能删除自己账号
+  * `Small mall shopping cart and order quantity must be a positive integer
+  * `Small Mall` WeChat payment callback verification failure notification message
+  * `Small Mall` receiving address is combined with userId and id
+  * `Management background` Administrators cannot delete their accounts
 
-#### 优化
+#### Optimization
  
-  * `文档`支持API文档
-  * `基础系统`更新第三方插件mybatis-generator-plugin到1.3.2
-  * `管理后台`不允许管理员通过编辑接口修改管理员密码
+  * `Document` supports API documentation
+  * `Base System` updated third-party plugin mybatis-generator-plugin to 1.3.2
+  * `Management background` does not allow the administrator to modify the administrator password through the editing interface
 
-#### 新特性
+#### New Features
   
-  * `小商城`帮助中心页面  
-  * `小商城`后端登录验证方式采用JWT (#167 by @Bigger-Ma)  
-  * `轻商场`基本结构完成 (#157 by @pkwenda)
-  * `管理后台`支持操作日志管理
+  * `Small Mall` help center page
+  * `Small Mall` backend login verification method uses JWT (# 167 by @ Bigger-Ma)
+  * `Light mall` basic structure completed (# 157 by @pkwenda)
+  * `Management background` supports operation log management
   
 ## V 1.3.0
  
-*2019-03-11*，支持配置管理
+* 2019-03-11 *, support configuration management
 
-  * `管理后台`商品类目页面和行政区域页面采用树形结构显示；
-  * `管理后台`取消国际化和主题；
-  * `管理后台`支持配置管理；
+  * `Management background` product category page and administrative area page are displayed in a tree structure;
+  * `Management background` cancel internationalization and theme;
+  * `Management background` supports configuration management;
   
-  注意：虽然配置管理中可以设置订单超时时间，但是由于目前采用定时查询方式会产生延时，
-  因此最终订单超时时间需要额外加上这些延迟才能更新状态。以后会解决这个问题（例如使用redis）。
+  Note: Although it is possible to set the order timeout time in the configuration management, due to the current timed query method, there will be a delay.
+  So the final order timeout period needs to add these delays to update the status. This will be resolved later (for example using redis).
 
 ## V 1.2.0
  
-*2019-03-03*，支持权限管理
+* 2019-03-03 *, support rights management
 
-  * `管理后台`支持权限管理；
-  * `小商城`取消编程式事务管理，采用注解式事务管理；
-  * `小商城`采用多线程进行数据库查询操作；
+  * `Management background` supports permission management;
+  * `Small Mall` cancels programmatic transaction management and uses annotation transaction management;
+  * `Small Mall` uses multiple threads for database query operations;
 
 ## V 1.1.0
  
-*2018-12-23*，支持优惠券
+* 2018-12-23 *, support coupons
 
-  * `管理后台`支持优惠券管理；
-  * `管理后台`调整定时任务到job子包，方便以后进一步迁移至独立模块；
-  * `小商城`支持优惠券列表展示和个人优惠券功能；
-  * `基础系统`快递鸟即时API调整
+  * `Management background` supports coupon management;
+  * `Management background` Adjust timing tasks to job subpackages for further migration to independent modules in the future;
+  * `Small Mall` supports coupon list display and personal coupon functions;
+  * `Base system` Express Bird API adjustment
 
 ## V 1.0.0
  
-*2018-12-03*，文档完善
+* 2018-12-03 *, complete documentation
 
 ## V 1.0.0.rc1
  
-*2018-11-30*，接入微信退款API
+* 2018-11-30 *, access WeChat refund API
 
-  * `管理后台`接入微信退款API；
-  * `管理后台`错误码取消magic number；
-  * `管理后台`禁止超级管理员修改密码；
+  * `Management background` access to WeChat refund API;
+  * `Management background` error code cancel magic number;
+  * `Management background` prohibits super administrators from changing passwords;
   
 ## V 1.0.0.rc0
  
-*2018-11-23*，清理代码，更新管理后台前端框架
+* 2018-11-23 *, clean code, update management front-end framework
 
-  * `管理后台`基于vue-element-admin更新至3.9.3；
-  * `管理后台`商品货品库存增加减少采用自定义Mapper；
-  * `管理后台`支持商品回复；
-  * `小商城`支持商品回复；
+  * `Management background` is updated to 3.9.3 based on vue-element-admin;
+  * `Management background` The increase of goods inventory and the reduction of the use of custom Mappers;
+  * `Management background` supports product reply;
+  * `Small Mall` supports product reply;
   
 ## V 0.10.2
  
-*2018-11-08*，修复一些小错误
+* 2018-11-08 *, fix some minor bugs
 
-  * `管理后台`富文本编辑调整，修复小程序端文本对齐不正确问题；
-  * `小商城`支持团购专区列表页面
-  * `小商城`关闭默认内置缓存功能
+  * `Management background` Rich text editing adjustment, fix the problem of incorrect text alignment on the applet;
+  * `Small Mall` supports group purchase area list page
+  * `Small Mall` turns off the default built-in cache function
  
 ## V 0.10.1
  
-*2018-11-07*，修复一些小错误
+* 2018-11-07 *, fix some minor bugs
   
 ## V 0.10.0
  
-*2018-10-26*，修复很多小错误
+* 2018-10-26 *, fix many small bugs
 
-  * `管理后台`校验POST参数
-  * `管理后台`乐观锁取消，仅用于订单表
+  * `Management background` verify POST parameters
+  * `Management background` optimistic lock cancellation, only for order table
   
 ## V 0.9.0
  
-*2018-09-14*，支持团购，第二套小商城renard-wx
+* 2018-09-14 *, support group purchase, the second set of small mall renard-wx
 
-  * `小商场`支持团购
-  * `小商场`开源第二套小商城renard-wx
-  * `小商场`支持意见反馈组件
-  * `管理后台`采用乐观锁更新
-  * `管理后台`升级Spring Boot到2.x
+  * `Small mall` supports group purchase
+  * `Small mall` open source second set of small mall renard-wx
+  * `Small mall` support feedback component
+  * `Management background` updates with optimistic locks
+  * `Management background` Upgrade Spring Boot to 2.x
 
 ## V 0.8.0
  
-*2018-07-30*，删除os模块，小程序完善
+* 2018-07-30 *, remove os module, perfect applet
  
-  * `小商场`支持商品分享
-  * `小商场`物流显示
-  * `小商场`优化商品购买样式，感谢[usgeek](https://github.com/linlinjava/litemall/pull/31) 
-  * `小商场`支持客服、关于页面、手机绑定，感谢[usgeek](https://github.com/linlinjava/litemall/pull/31) 
-  * `小商场`支持账号注册和密码找回时短信验证码
-  * `管理后台`页面查询时默认基于创建时间排序
-  * `基础系统`支持物流追踪  
-  * `基础系统`支持阿里云存储，感谢[usgeek](https://github.com/linlinjava/litemall/pull/31)  
-  * `项目`删除os模块，相关功能迁移至wx-api模块和admin-api模块
-  * `项目`从默认单机多服务方案调整至默认单机单服务方案
-  * `项目`暂时取消docker支持和.gitlab-ci.yml支持
-  * `项目`数据库添加litemall_system表，存储系统配置信息
-  * `项目`取消swagger支持
+  * `Small mall` supports product sharing
+  * `Small mall` logistics display
+  * `Small mall` optimizes product purchase styles, thanks [usgeek] (https://github.com/linlinjava/litemall/pull/31)
+  * `Small mall` supports customer service, about page, mobile phone binding, thanks [usgeek] (https://github.com/linlinjava/litemall/pull/31)
+  * `Small Mall` supports SMS verification codes for account registration and password retrieval
+  * `Management background` page query is sorted by creation time by default
+  * `Base system` supports logistics tracking
+  * `Basic System` supports Alibaba Cloud Storage, thanks [usgeek] (https://github.com/linlinjava/litemall/pull/31)
+  * `Project` delete os module, related functions are migrated to wx-api module and admin-api module
+  * `Project` adjusted from the default stand-alone multi-service plan to the default stand-alone single-service plan
+  * `Project` temporarily cancels docker support and .gitlab-ci.yml support
+  * `Item` database adds litemall_system table to store system configuration information
+  * `Project` cancel swagger support
 
 ## V 0.7.0
  
-*2018-07-16*，数据库再次简化，同时支持短信提醒、邮件提醒、腾讯对象存储服务
+* 2018-07-16 *, the database is simplified again, and it supports SMS reminder, email reminder, and Tencent object storage service
  
-  * `管理后台`页面查询时默认基于创建时间排序
-  * `管理后台`多个页面完善页面效果
-  * `管理后台`支持商品上架和商品编辑
-  * `基础系统`支持腾讯云短信提醒和邮件提醒，感谢[Menethil](https://github.com/linlinjava/litemall/pull/23)
-  * `基础系统`支持腾讯对象存储，感谢[Menethil](https://github.com/linlinjava/litemall/pull/24)
-  * `项目`数据库再次简化，同时小商城和管理后台代码进行相应调整
+  * `Management background` page query is sorted by creation time by default
+  * `Manage background` multiple pages to improve page effects
+  * `Management background` supports product listing and product editing
+  * `Basic System` supports Tencent Cloud SMS reminder and email reminder, thanks [Menethil] (https://github.com/linlinjava/litemall/pull/23)
+  * `Base System` supports Tencent Object Storage, thanks [Menethil] (https://github.com/linlinjava/litemall/pull/24)
+  * The `Project` database is simplified again, and the small mall and management background code are adjusted accordingly.
 
 ## V 0.6.0
  
-*2018-06-30*，项目支持商品上架和统计功能
+* 2018-06-30 *, the project supports product listing and statistics functions
  
-  * `小商场`因wx.getUserInfo接口调整，微信登录调整
-  * `小商场`支持手机号码验证
-  * `管理后台`支持简单的统计
-  * `管理后台`支持商品上架
-  * `管理后台`基于官方tinymce-vue实现富文本编辑
-  * `项目`支持docker部署
+  * `Small mall` adjusted due to wx.getUserInfo interface, WeChat login adjustment
+  * `Small mall` supports mobile number verification
+  * `Management background` supports simple statistics
+  * `Management background` supports product listing
+  * `Management background` for rich text editing based on official tinymce-vue
+  * `Project` supports docker deployment
     
 ## V 0.5.0
  
-*2018-05-11*，项目支持微信支付和修复小程序的一些BUG
+* 2018-05-11 *, the project supports WeChat payment and fixes some bugs in the applet
  
-  * `小商场`因wx.getUserInfo接口调整，微信登录调整
-  * `小商场`修复立即购买会下单购物车所有商品
-  * `小商场`修复下单商品时添加收货地址成功但是没有显示
-  * `小商场`修复下单商品时添加收货地址的地址信息不能滚动
-  * `小商场`修复购物车商品不能删除
-  * `小商场`支持微信支付
-  * `管理后台`支持微信支付
-  * `基础系统`数据库litemall_collect的id设置自增
-  * `基础系统`数据库删除region相关的四个临时表
-  * `基础系统`litemall-core模块swagger2配置，支持swagger文档
-  * `项目`多模块maven结构重新设计
-  * `项目`文档整理部署方案和上线方案
-  * `项目`文档支持更新日志、贡献指南和常见问题
+  * `Small mall` adjusted due to wx.getUserInfo interface, WeChat login adjustment
+  * `Small mall` Repair all items will be placed in the shopping cart immediately
+  * `Small mall` fixed adding delivery address successfully when ordering goods but no display
+  * `Small mall` fixed the address information of adding delivery address when ordering goods could not be scrolled
+  * `Small mall` Repair shopping cart items cannot be deleted
+  * `Small mall` supports WeChat payment
+  * `Management background` supports WeChat payment
+  * The `base system` database litemall_collect id is set to increase automatically
+  * `Base system` database deletes four temporary tables related to the region
+  * `Basic system` litemall-core module swagger2 configuration, support swagger documentation
+  * `Project` multi-module maven structure redesign
+  * `Project` document arrangement deployment plan and online plan
+  * `Project` documentation supports changelogs, contribution guides, and frequently asked questions
 
 ## V 0.4.0
  
-*2018-04-21*，项目结构调整，增加了两个模块
+* 2018-04-21 *, adjustment of project structure, adding two modules
  
-  * `小商场`的后端服务代码添加注释，校验输入参数
-  * `小商场`商品无货时显示“商品已售空”
-  * `管理后台`支持管理员同一账户多终端登录，方便演示
-  * `管理后台`专题内容支持富文本编辑
-  * `基础系统`litemall-os-api的链接从`storage/index/index`调整至`os/index/index`
-  * `基础系统`litemall-os-api支持浏览器显示。
-  * `基础系统`新增litemall-core模块，综合了litemall-os-api、litemall-wx-api
-     和litemall-admin-api的共性代码
-  * `基础系统`新增litemall-all模块作为包裹模块，支持三个后端服务和静态文件
-     打包成一个war项目包
+  * Annotate the backend service code of `Small Mall` and verify the input parameters
+  * `Small shopping malls' will display" Sold out "when the product is out of stock
+  * `Management background` supports multiple logins of the same account by the administrator for easy demonstration
+  * `Management background` thematic content supports rich text editing
+  * `Base system` litemall-os-api link adjusted from` storage / index / index` to `os / index / index`
+  * `Base system` litemall-os-api supports browser display.
+  * `Basic System` added litemall-core module, integrated litemall-os-api, litemall-wx-api
+     And litemall-admin-api common code
+  * `Basic System` added litemall-all module as a package module, supporting three backend services and static files
+     Packaged into a war project package
      
-## V 0.3.0 
+## V 0.3.0
 
-*2018-04-07*，业务模块从物理删除调整成逻辑删除
+* 2018-04-07 *, business module adjusted from physical deletion to logical deletion
 
-* `小商场`的后端服务加密用户账号密码
-* `小商场`如果用户选择货品，则显示货品对应的价格；否则显示商品价格
-* `小商场`只有规格都选择，则商品页面才显示所对应货品的规格文本
-* `管理后台`商品详细信息支持tinymce富文本编辑
-* `管理后台`的后端服务加密管理员密码
-* `管理后台`完善登录退出逻辑
-* `基础系统`数据库中除regions几个表，其他所有表都添加`add_time`和`deleted`字段
-* `基础系统`litemall-db模块不支持数据物理删除，删除则设置`deleted`，而查询则过滤`deleted`
-
-## V 0.2.0
-
-*2018-04-02*，修复一些小商场出现的问题。
-
-* `小商场`微信登录
-* `小商场`账号登录、注册、找回密码
-  （注意手机验证码不支持，因此目前只是完成基本功能，但是存在安全风险）
-* `小商场`订单编号采用日期+6位随机数
-* `小商场`简单运费计算
-* `小商场`专题评价
-* `管理后台`禁止管理员修改超级管理员信息
-* `基础系统`自动脚本util/lazy.sh和util/upload.sh
-  
-## V 0.1.0
-
-*2018-03-24*， 项目架构基本完成。
+* `Small mall` backend service encrypted user account password
+* `Small mall` If the user selects the product, the price corresponding to the product is displayed; otherwise, the product price is displayed
+* `Small mall` Only if the specifications are selected, the product page will display the specifications text of the corresponding product
+* `Management background` product details support t

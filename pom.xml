@@ -56,14 +56,14 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- Spring Boot Mybatis 依赖 -->
+            <!-- Spring Boot Mybatis depends -->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>1.3.2</version>
             </dependency>
 
-            <!-- Spring Boot pagehelper 依赖 -->
+            <!-- Spring Boot pagehelper depends -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -82,7 +82,7 @@
                 <version>6.1.0.Final</version>
             </dependency>
 
-            <!-- MySQL 连接驱动依赖 -->
+            <!-- MySQL Connection-driven dependency -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -157,14 +157,14 @@
 
     <dependencies>
 
-        <!-- 热部署模块 -->
+        <!--Hot deployment module-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- 测试模块 -->
+        <!--Test module-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
