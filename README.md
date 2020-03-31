@@ -39,7 +39,7 @@ note:
 
 ### Management background instance
 
-! [] (./ doc / pics / readme / admin-dashboard.png)
+![](./doc/pics/readme/admin-dashboard.png)
 
 1. Open your browser and enter the following URL: [http://122.51.199.160:8080/#/login](http://122.51.199.160:8080/#/login)
 2. Administrator username `admin123`, administrator password` admin123`
