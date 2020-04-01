@@ -813,6 +813,7 @@ CREATE TABLE `litemall_user` (
   `nickname` varchar(63) NOT NULL DEFAULT '' COMMENT 'User nickname or network name',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT 'User phone number',
   `avatar` varchar(255) NOT NULL DEFAULT '' COMMENT 'User avatar picture',
+-- TODO Use social id to instead of this to link user to social table(TODO add the table)
   `weixin_openid` varchar(63) NOT NULL DEFAULT '' COMMENT 'WeChat login openid',
   `session_key` varchar(100) NOT NULL DEFAULT '' COMMENT 'WeChat login session KEY',
   `status` tinyint(3) NOT NULL DEFAULT '0' COMMENT '0 available, 1 disabled, 2 logout',
