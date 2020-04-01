@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 /**
- * 数据库定时备份任务
- * 在backup文件夹中备份最近七日的数据库文件
+ * Database backup task
+ * Back up the database files of the last seven days in the backup folder
  */
 @Component
 public class DbJob {
@@ -24,11 +24,11 @@ public class DbJob {
     private Environment environment;
 
     /*
-     * 定时时间是每天凌晨5点。
+     * The scheduled time is 5 am every day.
      */
     @Scheduled(cron = "0 0 5 * * ?")
     public void backup() throws IOException {
-        logger.info("系统开启定时任务数据库备份");
+        logger.info("The system starts the scheduled task database backup");
 
         String user = environment.getProperty("spring.datasource.druid.username");
         String password = environment.getProperty("spring.datasource.druid.password");
@@ -43,14 +43,14 @@ public class DbJob {
         file.getParentFile().mkdirs();
         file.createNewFile();
 
-        // 备份今天数据库
+        // Back up today's database
         DbUtil.backup(file, user, password, db);
-        // 删除七天前数据库备份文件
+        // Delete the database backup file seven days ago
         LocalDate before = localDate.minusDays(7);
         File fileBefore = new File("backup", fileName);
         fileBefore.deleteOnExit();
 
-        logger.info("系统结束定时任务数据库备份");
+        logger.info("The system ends the scheduled task database backup");
     }
 
 }

@@ -14,20 +14,20 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 这里的日志类型设计成四种（当然开发者需要可以自己扩展）
- * 一般日志：用户觉得需要查看的一般操作日志，建议是默认的日志级别
- * 安全日志：用户安全相关的操作日志，例如登录、删除管理员
- * 订单日志：用户交易相关的操作日志，例如订单发货、退款
- * 其他日志：如果以上三种不合适，可以选择其他日志，建议是优先级最低的日志级别
+ * The log types here are designed into four types (of course developers need to be able to expand their own)
+ * General log: The general operation log that the user feels needs to view, the recommended log level is the default
+ * Security log: Operation logs related to user security, such as login and delete administrator
+ * Order log: operation logs related to user transactions, such as order shipment and refund
+ * Other logs: If the above three are not suitable, you can choose other logs. It is recommended that the log level with the lowest priority
  * <p>
- * 当然可能很多操作是不需要记录到数据库的，例如编辑商品、编辑广告品之类。
+ * Of course, many operations may not need to be recorded in the database, such as editing commodities and editing advertisements.
  */
 @Component
 public class LogHelper {
-    public static final  Integer LOG_TYPE_GENERAL = 0;
-    public static final  Integer LOG_TYPE_AUTH = 1;
-    public static final  Integer LOG_TYPE_ORDER = 2;
-    public static final  Integer LOG_TYPE_OTHER = 3;
+    public static final Integer LOG_TYPE_GENERAL = 0;
+    public static final Integer LOG_TYPE_AUTH = 1;
+    public static final Integer LOG_TYPE_ORDER = 2;
+    public static final Integer LOG_TYPE_OTHER = 3;
 
     @Autowired
     private LitemallLogService logService;

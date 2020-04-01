@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * 检测订单状态
+ * Check order status
  */
 @Component
 public class OrderJob {
@@ -33,17 +33,17 @@ public class OrderJob {
     private LitemallGrouponRulesService rulesService;
 
     /**
-     * 自动确认订单
+     * Automatic order confirmation
      * <p>
-     * 定时检查订单未确认情况，如果超时 LITEMALL_ORDER_UNCONFIRM 天则自动确认订单
-     * 定时时间是每天凌晨3点。
+     * Regularly check the status of unconfirmed orders, if LITEMALL_ORDER_UNCONFIRM days expire, the order will be confirmed
+     * The scheduled time is 3 am every day.
      * <p>
      * TODO
-     * 注意，因为是相隔一天检查，因此导致订单真正超时时间是 [LITEMALL_ORDER_UNCONFIRM, 1 + LITEMALL_ORDER_UNCONFIRM]
+     * Note that because it is checked one day apart, the real timeout time for the order is [LITEMALL_ORDER_UNCONFIRM, 1 + LITEMALL_ORDER_UNCONFIRM]
      */
     @Scheduled(cron = "0 0 3 * * ?")
     public void checkOrderUnconfirm() {
-        logger.info("系统开启定时任务检查订单是否已经超期自动确认收货");
+        logger.info("The system starts a scheduled task to check whether the order has expired and automatically confirms the receipt");
 
         List<LitemallOrder> orderList = orderService.queryUnconfirm(SystemConfig.getOrderUnconfirm());
         for (LitemallOrder order : orderList) {
@@ -52,27 +52,27 @@ public class OrderJob {
             order.setOrderStatus(OrderUtil.STATUS_AUTO_CONFIRM);
             order.setConfirmTime(LocalDateTime.now());
             if (orderService.updateWithOptimisticLocker(order) == 0) {
-                logger.info("订单 ID=" + order.getId() + " 数据已经更新，放弃自动确认收货");
+                logger.info("Order ID=" + order.getId() + " The data has been updated, abandon automatic receipt confirmation");
             } else {
-                logger.info("订单 ID=" + order.getId() + " 已经超期自动确认收货");
+                logger.info("Order ID=" + order.getId() + " The receipt has been automatically confirmed overdue");
             }
         }
 
-        logger.info("系统结束定时任务检查订单是否已经超期自动确认收货");
+        logger.info("The system ends the scheduled task to check whether the order has expired and automatically confirm the receipt");
     }
 
     /**
-     * 可评价订单商品超期
+     * Evaluable order product overdue
      * <p>
-     * 定时检查订单商品评价情况，如果确认商品超时 LITEMALL_ORDER_COMMENT 天则取消可评价状态
-     * 定时时间是每天凌晨4点。
+     * Regularly check the order product evaluation status, if you confirm that the product is overtime LITEMALL_ORDER_COMMENT days to cancel the evaluation status
+     * The scheduled time is 4 am every day.
      * <p>
      * TODO
-     * 注意，因为是相隔一天检查，因此导致订单真正超时时间是 [LITEMALL_ORDER_COMMENT, 1 + LITEMALL_ORDER_COMMENT]
+     * Note that because it is checked one day apart, the real timeout period for orders is [LITEMALL_ORDER_COMMENT, 1 + LITEMALL_ORDER_COMMENT]
      */
     @Scheduled(cron = "0 0 4 * * ?")
     public void checkOrderComment() {
-        logger.info("系统开启任务检查订单是否已经超期未评价");
+        logger.info("The system opens a task to check whether the order has expired and has not been evaluated");
 
         List<LitemallOrder> orderList = orderService.queryComment(SystemConfig.getOrderComment());
         for (LitemallOrder order : orderList) {
@@ -86,6 +86,6 @@ public class OrderJob {
             }
         }
 
-        logger.info("系统结束任务检查订单是否已经超期未评价");
+        logger.info("The system ends the task to check whether the order has expired and has not been evaluated");
     }
 }

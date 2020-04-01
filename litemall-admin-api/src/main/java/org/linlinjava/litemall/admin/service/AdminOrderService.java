@@ -71,20 +71,21 @@ public class AdminOrderService {
     }
 
     /**
-     * 订单退款
+     * Order refund
      * <p>
-     * 1. 检测当前订单是否能够退款;
-     * 2. 微信退款操作;
-     * 3. 设置订单退款确认状态；
-     * 4. 订单商品库存回库。
+     * 1. Check whether the current order can be refunded;
+     * 2. WeChat refund operation;
+     * 3. Set order refund confirmation status;
+     * 4. The merchandise inventory of the order is returned to the warehouse.
      * <p>
      * TODO
-     * 虽然接入了微信退款API，但是从安全角度考虑，建议开发者删除这里微信退款代码，采用以下两步走步骤：
-     * 1. 管理员登录微信官方支付平台点击退款操作进行退款
-     * 2. 管理员登录litemall管理后台点击退款操作进行订单状态修改和商品库存回库
+     * Although the WeChat refund API is connected, from a security point of view, it is recommended that developers delete the WeChat refund code here and take the following two steps:
+     * 1. The administrator logs in to the WeChat official payment platform and clicks the refund operation to refund
+     * 2. The administrator logs in to the litemall management background and clicks the refund operation to modify the order status and return the product inventory to the library
      *
-     * @param body 订单信息，{ orderId：xxx }
-     * @return 订单退款操作结果
+     * @param body order information, {orderId: xxx}
+     * @return order refund operation result
+     *      
      */
     @Transactional
     public Object refund(String body) {
@@ -106,16 +107,16 @@ public class AdminOrderService {
             return ResponseUtil.badArgumentValue();
         }
 
-        // 如果订单不是退款状态，则不能退款
+        // If the order is not refundable, it cannot be refunded
         if (!order.getOrderStatus().equals(OrderUtil.STATUS_REFUND)) {
-            return ResponseUtil.fail(ORDER_CONFIRM_NOT_ALLOWED, "订单不能确认收货");
+            return ResponseUtil.fail(ORDER_CONFIRM_NOT_ALLOWED, "The order cannot confirm receipt");
         }
 
-        // 微信退款
+        // WeChat refund
         WxPayRefundRequest wxPayRefundRequest = new WxPayRefundRequest();
         wxPayRefundRequest.setOutTradeNo(order.getOrderSn());
         wxPayRefundRequest.setOutRefundNo("refund_" + order.getOrderSn());
-        // 元转成分
+        // Yuan to composition
         Integer totalFee = order.getActualPrice().multiply(new BigDecimal(100)).intValue();
         wxPayRefundRequest.setTotalFee(totalFee);
         wxPayRefundRequest.setRefundFee(totalFee);
@@ -125,31 +126,31 @@ public class AdminOrderService {
             wxPayRefundResult = wxPayService.refund(wxPayRefundRequest);
         } catch (WxPayException e) {
             logger.error(e.getMessage(), e);
-            return ResponseUtil.fail(ORDER_REFUND_FAILED, "订单退款失败");
+            return ResponseUtil.fail(ORDER_REFUND_FAILED, "Order refund failed");
         }
         if (!wxPayRefundResult.getReturnCode().equals("SUCCESS")) {
             logger.warn("refund fail: " + wxPayRefundResult.getReturnMsg());
-            return ResponseUtil.fail(ORDER_REFUND_FAILED, "订单退款失败");
+            return ResponseUtil.fail(ORDER_REFUND_FAILED, "Order refund failed");
         }
         if (!wxPayRefundResult.getResultCode().equals("SUCCESS")) {
             logger.warn("refund fail: " + wxPayRefundResult.getReturnMsg());
-            return ResponseUtil.fail(ORDER_REFUND_FAILED, "订单退款失败");
+            return ResponseUtil.fail(ORDER_REFUND_FAILED, "Order refund failed");
         }
 
         LocalDateTime now = LocalDateTime.now();
-        // 设置订单取消状态
+        // Set order cancellation status
         order.setOrderStatus(OrderUtil.STATUS_REFUND_CONFIRM);
         order.setEndTime(now);
-        // 记录订单退款相关信息
+        // Record information about order refund
         order.setRefundAmount(order.getActualPrice());
-        order.setRefundType("微信退款接口");
+        order.setRefundType("WeChat refund interface");
         order.setRefundContent(wxPayRefundResult.getRefundId());
         order.setRefundTime(now);
         if (orderService.updateWithOptimisticLocker(order) == 0) {
-            throw new RuntimeException("更新数据已失效");
+            throw new RuntimeException("Update data has expired");
         }
 
-        // 商品货品数量增加
+        // Increased number of goods
         List<LitemallOrderGoods> orderGoodsList = orderGoodsService.queryByOid(orderId);
         for (LitemallOrderGoods orderGoods : orderGoodsList) {
             Integer productId = orderGoods.getProductId();
@@ -159,25 +160,25 @@ public class AdminOrderService {
             }
         }
 
-        //TODO 发送邮件和短信通知，这里采用异步发送
-        // 退款成功通知用户, 例如“您申请的订单退款 [ 单号:{1} ] 已成功，请耐心等待到账。”
-        // 注意订单号只发后6位
+        // TODO sends email and SMS notifications, here uses asynchronous sending
+        // Notify the user of the successful refund, for example, "The refund for the order you have applied for [order number: {1}] has been successful, please be patient and wait for the arrival."
+        // Note that the order number is only sent to the last 6 digits
         notifyService.notifySmsTemplate(order.getMobile(), NotifyType.REFUND,
                 new String[]{order.getOrderSn().substring(8, 14)});
 
-        logHelper.logOrderSucceed("退款", "订单编号 " + order.getOrderSn());
+        logHelper.logOrderSucceed("Refund", "Order number " + order.getOrderSn());
         return ResponseUtil.ok();
     }
 
     /**
-     * 发货
-     * 1. 检测当前订单是否能够发货
-     * 2. 设置订单发货状态
+     * Ship
+     * 1. Check whether the current order can be shipped
+     * 2. Set order shipping status
      *
-     * @param body 订单信息，{ orderId：xxx, shipSn: xxx, shipChannel: xxx }
-     * @return 订单操作结果
-     * 成功则 { errno: 0, errmsg: '成功' }
-     * 失败则 { errno: XXX, errmsg: XXX }
+     * @param body order information { orderId：xxx, shipSn: xxx, shipChannel: xxx }
+     * @return Order operation result
+     * Success { errno: 0, errmsg: 'success' }
+     * Fail { errno: XXX, errmsg: XXX }
      */
     public Object ship(String body) {
         Integer orderId = JacksonUtil.parseInteger(body, "orderId");
@@ -192,9 +193,9 @@ public class AdminOrderService {
             return ResponseUtil.badArgument();
         }
 
-        // 如果订单不是已付款状态，则不能发货
+        // If the order is not paid, it cannot be shipped
         if (!order.getOrderStatus().equals(OrderUtil.STATUS_PAY)) {
-            return ResponseUtil.fail(ORDER_CONFIRM_NOT_ALLOWED, "订单不能确认收货");
+            return ResponseUtil.fail(ORDER_CONFIRM_NOT_ALLOWED, "The order cannot confirm receipt");
         }
 
         order.setOrderStatus(OrderUtil.STATUS_SHIP);
@@ -205,24 +206,24 @@ public class AdminOrderService {
             return ResponseUtil.updatedDateExpired();
         }
 
-        //TODO 发送邮件和短信通知，这里采用异步发送
-        // 发货会发送通知短信给用户:          *
-        // "您的订单已经发货，快递公司 {1}，快递单 {2} ，请注意查收"
+        //TODO Send mail and SMS notifications, asynchronous sending here
+        // The delivery will send a notification message to the user: *
+        // "Your order has been shipped, express company {1}, express order {2}, please check"
         notifyService.notifySmsTemplate(order.getMobile(), NotifyType.SHIP, new String[]{shipChannel, shipSn});
 
-        logHelper.logOrderSucceed("发货", "订单编号 " + order.getOrderSn());
+        logHelper.logOrderSucceed("Ship", "Order number " + order.getOrderSn());
         return ResponseUtil.ok();
     }
 
     /**
-     * 删除订单
-     * 1. 检测当前订单是否能够删除
-     * 2. 删除订单
+     * Delete order
+     * 1. Check if the current order can be deleted
+     * 2. Delete order
      *
-     * @param body 订单信息，{ orderId：xxx }
-     * @return 订单操作结果
-     * 成功则 { errno: 0, errmsg: '成功' }
-     * 失败则 { errno: XXX, errmsg: XXX }
+     * @param body order information{ orderId：xxx }
+     * @return Order operation result
+     * Success { errno: 0, errmsg: 'success' }
+     * Fail { errno: XXX, errmsg: XXX }
      */
     public Object delete(String body) {
         Integer orderId = JacksonUtil.parseInteger(body, "orderId");
@@ -231,47 +232,47 @@ public class AdminOrderService {
             return ResponseUtil.badArgument();
         }
 
-        // 如果订单不是关闭状态(已取消、系统取消、已退款、用户已确认、系统已确认)，则不能删除
+        // If the order is not closed (cancelled, system cancelled, refunded, user confirmed, system confirmed), it cannot be deleted
         Short status = order.getOrderStatus();
         if (!status.equals(OrderUtil.STATUS_CANCEL) && !status.equals(OrderUtil.STATUS_AUTO_CANCEL) &&
-                !status.equals(OrderUtil.STATUS_CONFIRM) &&!status.equals(OrderUtil.STATUS_AUTO_CONFIRM) &&
+                !status.equals(OrderUtil.STATUS_CONFIRM) && !status.equals(OrderUtil.STATUS_AUTO_CONFIRM) &&
                 !status.equals(OrderUtil.STATUS_REFUND_CONFIRM)) {
-            return ResponseUtil.fail(ORDER_DELETE_FAILED, "订单不能删除");
+            return ResponseUtil.fail(ORDER_DELETE_FAILED, "Order cannot be deleted");
         }
-        // 删除订单
+        // Delete order
         orderService.deleteById(orderId);
-        // 删除订单商品
+        // Delete order items
         orderGoodsService.deleteByOrderId(orderId);
-        logHelper.logOrderSucceed("删除", "订单编号 " + order.getOrderSn());
+        logHelper.logOrderSucceed("delete", "Order number " + order.getOrderSn());
         return ResponseUtil.ok();
     }
 
     /**
-     * 回复订单商品
+     * Reply to order
      *
-     * @param body 订单信息，{ orderId：xxx }
-     * @return 订单操作结果
-     * 成功则 { errno: 0, errmsg: '成功' }
-     * 失败则 { errno: XXX, errmsg: XXX }
+     * @param body order information{ orderId：xxx }
+     * @return Order operation result
+     * Success { errno: 0, errmsg: 'success' }
+     * Fail { errno: XXX, errmsg: XXX }
      */
     public Object reply(String body) {
         Integer commentId = JacksonUtil.parseInteger(body, "commentId");
         if (commentId == null || commentId == 0) {
             return ResponseUtil.badArgument();
         }
-        // 目前只支持回复一次
+        // Currently only supports reply once
         LitemallComment comment = commentService.findById(commentId);
-        if(comment == null){
+        if (comment == null) {
             return ResponseUtil.badArgument();
         }
         if (!StringUtils.isEmpty(comment.getAdminContent())) {
-            return ResponseUtil.fail(ORDER_REPLY_EXIST, "订单商品已回复！");
+            return ResponseUtil.fail(ORDER_REPLY_EXIST, "Order product has been replied!");
         }
         String content = JacksonUtil.parseString(body, "content");
         if (StringUtils.isEmpty(content)) {
             return ResponseUtil.badArgument();
         }
-        // 更新评价回复
+        // Update review reply
         comment.setAdminContent(content);
         commentService.updateById(comment);
 

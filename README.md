@@ -89,7 +89,7 @@ note:
 * Configuration management
 * Statistical report
 
-## 快速启动
+## Quick Start
 
 1. Configure the minimum development environment:
     * [MySQL](https://dev.mysql.com/downloads/mysql/)
