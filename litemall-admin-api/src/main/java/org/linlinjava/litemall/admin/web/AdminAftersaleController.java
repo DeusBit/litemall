@@ -226,7 +226,7 @@ public class AdminAftersaleController {
         notifyService.notifySmsTemplate(order.getMobile(), NotifyType.REFUND,
                 new String[]{order.getOrderSn().substring(8, 14)});
 
-        logHelper.logOrderSucceed("退款", "订单编号 " + order.getOrderSn() + " 售后编号 " + aftersale.getAftersaleSn());
+        logHelper.logOrderSucceed("退款", "Order number " + order.getOrderSn() + " 售后编号 " + aftersale.getAftersaleSn());
         return ResponseUtil.ok();
     }
 }

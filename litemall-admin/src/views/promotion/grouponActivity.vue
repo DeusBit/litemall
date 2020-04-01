@@ -21,15 +21,15 @@
       <el-table-column type="expand">
         <template slot-scope="scope">
           <el-table :data="scope.row.subGroupons" border style="width: 100%">
-            <el-table-column align="center" label="订单ID" prop="orderId" />
-            <el-table-column align="center" label="用户ID" prop="userId" />
+            <el-table-column align="center" label="Order ID" prop="orderId" />
+            <el-table-column align="center" label="User ID" prop="userId" />
           </el-table>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="订单ID" prop="groupon.orderId" />
+      <el-table-column align="center" label="Order ID" prop="groupon.orderId" />
 
-      <el-table-column align="center" label="用户ID" prop="groupon.userId" />
+      <el-table-column align="center" label="User ID" prop="groupon.userId" />
 
       <el-table-column align="center" label="参与人数" prop="subGroupons.length" />
 

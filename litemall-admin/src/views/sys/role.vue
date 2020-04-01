@@ -10,7 +10,7 @@
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column align="center" label="角色名称" prop="name" sortable/>
+      <el-table-column align="center" label="Role Name" prop="name" sortable/>
 
       <el-table-column align="center" label="说明" prop="desc"/>
 
@@ -28,7 +28,7 @@
     <!-- 添加或修改对话框 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="角色名称" prop="name">
+        <el-form-item label="Role Name" prop="name">
           <el-input v-model="dataForm.name"/>
         </el-form-item>
         <el-form-item label="说明" prop="desc">

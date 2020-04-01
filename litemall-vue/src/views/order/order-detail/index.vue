@@ -29,7 +29,7 @@
       <van-cell title="下单时间">
         <span>{{orderInfo.addTime }}</span>
       </van-cell>
-      <van-cell title="订单编号">
+      <van-cell title="Order number">
         <span>{{orderInfo.orderSn }}</span>
       </van-cell>
       <van-cell title="订单备注">

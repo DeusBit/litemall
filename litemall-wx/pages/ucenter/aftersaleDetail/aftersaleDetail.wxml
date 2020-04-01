@@ -4,9 +4,9 @@
     <van-cell value="{{ aftersale.addTime }}" title="申请时间" required/>
     <van-cell value="{{ aftersale.aftersaleSn }}" title="服务编号" required/>
     <van-cell value="{{ typeColumns[aftersale.type] }}" title="退款类型" required/>
-    <van-cell value="{{ aftersale.reason }}" title="退款原因" required/>
-    <van-cell title="退款金额" value="￥{{ aftersale.amount }}元" label="即订单实付- 运费" required/>
-    <van-field label="退款说明" value="{{ aftersale.comment }}" type="textarea" autosize disabled/>
+    <van-cell value="{{ aftersale.reason }}" title="reason for return" required/>
+    <van-cell title="Refund amount" value="￥{{ aftersale.amount }}元" label="即订单实付- 运费" required/>
+    <van-field label="Refund instructions" value="{{ aftersale.comment }}" type="textarea" autosize disabled/>
     <van-cell title="上传凭证" >
       <van-uploader file-list="{{ fileList }}" disabled deletable="{{false}}" max-count="0" preview-size="50px"/>
     </van-cell>

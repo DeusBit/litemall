@@ -77,7 +77,7 @@ public class WxGrouponController {
     /**
      * 团购活动详情
      *
-     * @param userId    用户ID
+     * @param userId    User ID
      * @param grouponId 团购活动ID
      * @return 团购活动详情
      */
@@ -177,7 +177,7 @@ public class WxGrouponController {
      * 参加团购
      *
      * @param grouponId 团购活动ID
-     * @return 操作结果
+     * @return Operation result
      */
     @GetMapping("join")
     public Object join(@NotNull Integer grouponId) {
@@ -206,7 +206,7 @@ public class WxGrouponController {
     /**
      * 用户开团或入团情况
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param showType 显示类型，如果是0，则是当前用户开的团购；否则，则是当前用户参加的团购
      * @return 用户开团或入团情况
      */

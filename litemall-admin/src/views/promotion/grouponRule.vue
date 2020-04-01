@@ -34,7 +34,7 @@
 
       <el-table-column align="center" label="团购要求" prop="discountMember" />
 
-      <el-table-column align="center" label="状态" prop="status">
+      <el-table-column align="center" label="status" prop="status">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status === 0 ? 'success' : 'error' ">{{ statusMap[scope.row.status] }}</el-tag>
         </template>

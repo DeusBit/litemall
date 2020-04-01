@@ -175,7 +175,7 @@ litemall_region表保存了行政区域信息，包括省级、市级、县级�
 
 * 支付信息
 
-支付时间和支付订单ID。
+支付时间和支付Order ID。
 
 * 评论信息
 
@@ -183,7 +183,7 @@ litemall_region表保存了行政区域信息，包括省级、市级、县级�
 
 * 其他信息
 
-#### 2.4.1 订单状态
+#### 2.4.1 Order Status
 
 ![](pics/database/order-status.png)
 
@@ -512,13 +512,13 @@ litemall_coupon_user表的status字段，包含以后三种状态：
 
 考虑到语义，操作业务应该是“谁做了什么操作，结果成功还是失败，失败原因是什么，补充信息是什么”，
 因此这里设计的业务日志表关键字段如下：
-* 管理员
+* administrator
 * IP地址
-* 操作分类
-* 操作动作
-* 操作状态
-* 操作结果
-* 补充信息
+* Operation classification
+* Action
+* Operation status
+* Operation result
+* Additional information
 
 #### 2.10.1 操作类别
 
@@ -530,7 +530,7 @@ litemall_coupon_user表的status字段，包含以后三种状态：
 
 当然建议开发者应该和最终用户讨论交流，记录真正关键性的业务操作，例如登录相关或订单相关等。
 
-#### 2.10.2 操作结果
+#### 2.10.2 Operation result
 
 如果操作成功，可以使用操作结果字段记录被操作的对象。
 当然，有些操作没有具体对象，那么可以省略。

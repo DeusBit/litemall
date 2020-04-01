@@ -16,8 +16,8 @@ public interface Storage {
      *
      * @param inputStream   文件输入流
      * @param contentLength 文件长度
-     * @param contentType   文件类型
-     * @param keyName       文件名
+     * @param contentType   file type
+     * @param keyName       file name
      */
     void store(InputStream inputStream, long contentLength, String contentType, String keyName);
 

@@ -11,7 +11,7 @@
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column align="center" width="100px" label="用户ID" prop="id" sortable/>
+      <el-table-column align="center" width="100px" label="User ID" prop="id" sortable/>
 
       <el-table-column align="center" label="用户名" prop="username"/>
 
@@ -31,7 +31,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="状态" prop="status">
+      <el-table-column align="center" label="status" prop="status">
         <template slot-scope="scope">
           <el-tag>{{ statusDic[scope.row.status] }}</el-tag>
         </template>
@@ -93,7 +93,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['用户名', '手机号码', '性别', '生日', '状态']
+        const tHeader = ['用户名', '手机号码', '性别', '生日', 'status']
         const filterVal = ['username', 'mobile', 'gender', 'birthday', 'status']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '用户信息')
         this.downloadLoading = false

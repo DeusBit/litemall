@@ -22,7 +22,7 @@
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" fit highlight-current-row @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
 
-      <el-table-column align="center" label="通知标题" prop="noticeTitle" />
+      <el-table-column align="center" label="Notification title" prop="noticeTitle" />
 
       <el-table-column align="center" label="通知时间" prop="addTime" width="180" />
 

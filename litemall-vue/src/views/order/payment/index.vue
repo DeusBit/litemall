@@ -7,7 +7,7 @@
     </div>
 
     <van-cell-group class="payment_group">
-      <van-cell title="订单编号" :value="order.orderInfo.orderSn"/>
+      <van-cell title="Order number" :value="order.orderInfo.orderSn"/>
       <van-cell title="实付金额">
         <span class="red">{{order.orderInfo.actualPrice *100 | yuan}}</span>
       </van-cell>

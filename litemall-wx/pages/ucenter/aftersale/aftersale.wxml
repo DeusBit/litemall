@@ -29,9 +29,9 @@
 
   <van-cell-group title="操作">
     <van-field value="{{ aftersale.typeDesc }}" label="退款类型" placeholder="请选择" input-align="right" required clickable bind:tap="showTypePicker" />
-    <van-field value="{{ aftersale.reason }}" label="退款原因" placeholder="请输入" bind:change="onReasonChange" input-align="right" required clearable />
-    <van-cell title="退款金额" value="￥{{ aftersale.amount }}元" label="不可修改，即订单实付- 运费" required/>
-    <van-field label="退款说明" value="{{ aftersale.comment }}" placeholder="请输入" type="textarea" input-align="right" autosize/>
+    <van-field value="{{ aftersale.reason }}" label="reason for return" placeholder="请输入" bind:change="onReasonChange" input-align="right" required clearable />
+    <van-cell title="Refund amount" value="￥{{ aftersale.amount }}元" label="不可修改，即订单实付- 运费" required/>
+    <van-field label="Refund instructions" value="{{ aftersale.comment }}" placeholder="请输入" type="textarea" input-align="right" autosize/>
     <van-cell title="上传凭证" label="最多上传三张">
       <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" bind:delete="deleteImage" max-count="3" preview-size="50px"/>
     </van-cell>    

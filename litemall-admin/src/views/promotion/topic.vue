@@ -21,9 +21,9 @@
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
 
-      <el-table-column align="center" label="专题标题" prop="title" />
+      <el-table-column align="center" label="Topic title" prop="title" />
 
-      <el-table-column align="center" label="专题子标题" min-width="200" prop="subtitle" />
+      <el-table-column align="center" label="Topic subtitle" min-width="200" prop="subtitle" />
 
       <el-table-column align="center" property="picUrl" label="图片">
         <template slot-scope="scope">
@@ -209,10 +209,10 @@ export default {
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
           '专题ID',
-          '专题标题',
-          '专题子标题',
+          'Topic title',
+          'Topic subtitle',
           '专题内容',
-          '专题图片',
+          'Thematic pictures',
           '商品低价',
           '阅读量',
           '专题商品'

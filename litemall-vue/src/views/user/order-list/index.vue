@@ -13,7 +13,7 @@
                   @load="getOrderList">
           <van-panel v-for="(el, i) in orderList"
                      :key="i"
-                     :title="'订单编号: ' + el.orderSn"
+                     :title="'Order number: ' + el.orderSn"
                      :status="el.orderStatusText"
                      @click.native="toOrderDetail(el.id)">
             <van-card v-for="(goods, goodsI) in el.goodsList"

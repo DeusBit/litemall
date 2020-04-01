@@ -26,7 +26,7 @@
   <view class="orders">
     <navigator url="../orderDetail/orderDetail?id={{item.id}}" class="order" open-type="navigate" wx:for="{{orderList}}" wx:key="id">
       <view class="h">
-        <view class="l">订单编号：{{item.orderSn}}</view>
+        <view class="l">Order number：{{item.orderSn}}</view>
         <view class="r">{{item.orderStatusText}}</view>
       </view>
       <view class="goods" wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem">

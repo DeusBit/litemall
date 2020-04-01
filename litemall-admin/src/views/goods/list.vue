@@ -17,7 +17,7 @@
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" class="table-expand">
-            <el-form-item label="商品编号">
+            <el-form-item label="Product Number">
               <span>{{ props.row.goodsSn }}</span>
             </el-form-item>
             <el-form-item label="宣传画廊">
@@ -29,7 +29,7 @@
             <el-form-item label="商品单位">
               <span>{{ props.row.unit }}</span>
             </el-form-item>
-            <el-form-item label="关键字">
+            <el-form-item label="Keyword">
               <span>{{ props.row.keywords }}</span>
             </el-form-item>
             <el-form-item label="类目ID">
@@ -202,7 +202,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['商品ID', '商品编号', '名称', '专柜价格', '当前价格', '是否新品', '是否热品', '是否在售', '首页主图', '宣传图片列表', '商品介绍', '详细介绍', '商品图片', '商品单位', '关键字', '类目ID', '品牌商ID']
+        const tHeader = ['商品ID', 'Product Number', '名称', '专柜价格', '当前价格', '是否新品', '是否热品', '是否在售', '首页主图', '宣传图片列表', '商品介绍', '详细介绍', '商品图片', '商品单位', 'Keyword', '类目ID', '品牌商ID']
         const filterVal = ['id', 'goodsSn', 'name', 'counterPrice', 'retailPrice', 'isNew', 'isHot', 'isOnSale', 'listPicUrl', 'gallery', 'brief', 'detail', 'picUrl', 'goodsUnit', 'keywords', 'categoryId', 'brandId']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '商品信息')
         this.downloadLoading = false

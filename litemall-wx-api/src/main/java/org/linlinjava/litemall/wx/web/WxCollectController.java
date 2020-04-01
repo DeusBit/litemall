@@ -39,7 +39,7 @@ public class WxCollectController {
     /**
      * 用户收藏列表
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param type   类型，如果是0则是商品收藏，如果是1则是专题收藏
      * @param page   分页页数
      * @param limit   分页大小
@@ -82,9 +82,9 @@ public class WxCollectController {
      * <p>
      * 如果商品没有收藏，则添加收藏；如果商品已经收藏，则删除收藏状态。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   请求内容，{ type: xxx, valueId: xxx }
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("addordelete")
     public Object addordelete(@LoginUser Integer userId, @RequestBody String body) {

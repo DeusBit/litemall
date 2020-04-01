@@ -15,7 +15,7 @@
 
       <el-table-column align="center" label="品牌商ID" prop="id"/>
 
-      <el-table-column align="center" label="品牌商名称" prop="name"/>
+      <el-table-column align="center" label="Brand name" prop="name"/>
 
       <el-table-column align="center" property="picUrl" label="品牌商图片">
         <template slot-scope="scope">
@@ -40,7 +40,7 @@
     <!-- 添加或修改对话框 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="品牌商名称" prop="name">
+        <el-form-item label="Brand name" prop="name">
           <el-input v-model="dataForm.name"/>
         </el-form-item>
         <el-form-item label="介绍" prop="simpleDesc">
@@ -269,7 +269,7 @@ export default {
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
           '品牌商ID',
-          '品牌商名称',
+          'Brand name',
           '介绍',
           '低价',
           '品牌商图片'

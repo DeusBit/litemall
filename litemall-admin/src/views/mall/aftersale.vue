@@ -4,7 +4,7 @@
     <!-- 查询和其他操作 -->
     <div class="filter-container">
       <el-input v-model="listQuery.aftersaleSn" clearable class="filter-item" style="width: 200px;" placeholder="请输入售后编号" />
-      <el-input v-model="listQuery.orderId" clearable class="filter-item" style="width: 200px;" placeholder="请输入订单ID" />
+      <el-input v-model="listQuery.orderId" clearable class="filter-item" style="width: 200px;" placeholder="请输入Order ID" />
       <el-button v-permission="['GET /admin/aftersale/list']" class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
       <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button>
     </div>
@@ -24,14 +24,14 @@
       <el-table-column type="selection" width="55" />
 
       <el-table-column align="center" label="售后编号" prop="aftersaleSn" />
-      <el-table-column align="center" label="订单ID" prop="orderId" />
-      <el-table-column align="center" label="用户ID" prop="userId" />
+      <el-table-column align="center" label="Order ID" prop="orderId" />
+      <el-table-column align="center" label="User ID" prop="userId" />
       <el-table-column align="center" label="售后类型" prop="type">
         <template slot-scope="scope">
           <el-tag :type="typeTag[scope.row.type]">{{ typeDesc[scope.row.type] }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="退款原因" prop="reason" />
+      <el-table-column align="center" label="reason for return" prop="reason" />
       <el-table-column align="center" label="退款价格" prop="amount" />
       <el-table-column align="center" label="申请时间" prop="addTime" />
 
@@ -230,10 +230,10 @@ export default {
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
           '售后编号',
-          '订单ID',
-          '用户ID',
+          'Order ID',
+          'User ID',
           '售后类型',
-          '退款原因',
+          'reason for return',
           '退款价格',
           '申请时间'
         ]

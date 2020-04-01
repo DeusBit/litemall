@@ -3,7 +3,7 @@
 
     <!-- 查询和其他操作 -->
     <div class="filter-container">
-      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 160px;" placeholder="请输入用户ID" />
+      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 160px;" placeholder="请输入User ID" />
       <el-input v-model="listQuery.orderSn" clearable class="filter-item" style="width: 160px;" placeholder="请输入订单编号" />
       <el-date-picker v-model="listQuery.timeArray" type="datetimerange" class="filter-item" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" :picker-options="pickerOptions" />
       <el-select v-model="listQuery.orderStatusArray" multiple style="width: 200px" class="filter-item" placeholder="请选择订单状态">
@@ -16,11 +16,11 @@
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
 
-      <el-table-column align="center" min-width="100" label="订单编号" prop="orderSn" />
+      <el-table-column align="center" min-width="100" label="Order number" prop="orderSn" />
 
-      <el-table-column align="center" label="用户ID" prop="userId" />
+      <el-table-column align="center" label="User ID" prop="userId" />
 
-      <el-table-column align="center" label="订单状态" prop="orderStatus">
+      <el-table-column align="center" label="Order Status" prop="orderStatus">
         <template slot-scope="scope">
           <el-tag>{{ scope.row.orderStatus | orderStatusFilter }}</el-tag>
         </template>
@@ -52,10 +52,10 @@
     <el-dialog :visible.sync="orderDialogVisible" title="订单详情" width="800">
       <section ref="print">
         <el-form :data="orderDetail" label-position="left">
-          <el-form-item label="订单编号">
+          <el-form-item label="Order number">
             <span>{{ orderDetail.order.orderSn }}</span>
           </el-form-item>
-          <el-form-item label="订单状态">
+          <el-form-item label="Order Status">
             <el-tag>{{ orderDetail.order.orderStatus | orderStatusFilter }}</el-tag>
           </el-form-item>
           <el-form-item label="订单用户">
@@ -66,13 +66,13 @@
           </el-form-item>
           <el-form-item label="收货信息">
             <span>（收货人）{{ orderDetail.order.consignee }}</span>
-            <span>（手机号）{{ orderDetail.order.mobile }}</span>
+            <span>（phone number）{{ orderDetail.order.mobile }}</span>
             <span>（地址）{{ orderDetail.order.address }}</span>
           </el-form-item>
           <el-form-item label="商品信息">
             <el-table :data="orderDetail.orderGoods" border fit highlight-current-row>
-              <el-table-column align="center" label="商品名称" prop="goodsName" />
-              <el-table-column align="center" label="商品编号" prop="goodsSn" />
+              <el-table-column align="center" label="Product name" prop="goodsName" />
+              <el-table-column align="center" label="Product Number" prop="goodsSn" />
               <el-table-column align="center" label="货品规格" prop="specifications" />
               <el-table-column align="center" label="货品价格" prop="price" />
               <el-table-column align="center" label="货品数量" prop="number" />
@@ -102,10 +102,10 @@
             <span>（发货时间）{{ orderDetail.order.shipTime }}</span>
           </el-form-item>
           <el-form-item label="退款信息">
-            <span>（退款金额）{{ orderDetail.order.refundAmount }}元</span>
+            <span>（Refund amount）{{ orderDetail.order.refundAmount }}元</span>
             <span>（退款类型）{{ orderDetail.order.refundType }}</span>
-            <span>（退款备注）{{ orderDetail.order.refundContent }}</span>
-            <span>（退款时间）{{ orderDetail.order.refundTime }}</span>
+            <span>（Refund notes）{{ orderDetail.order.refundContent }}</span>
+            <span>（Refund time）{{ orderDetail.order.refundTime }}</span>
           </el-form-item>
           <el-form-item label="收货信息">
             <span>（确认收货时间）{{ orderDetail.order.confirmTime }}</span>
@@ -139,7 +139,7 @@
     <!-- 退款对话框 -->
     <el-dialog :visible.sync="refundDialogVisible" title="退款">
       <el-form ref="refundForm" :model="refundForm" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="退款金额" prop="refundMoney">
+        <el-form-item label="Refund amount" prop="refundMoney">
           <el-input v-model="refundForm.refundMoney" :disabled="true" />
         </el-form-item>
       </el-form>
@@ -356,7 +356,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['订单ID', '订单编号', '用户ID', '订单状态', '是否删除', '收货人', '收货联系电话', '收货地址']
+        const tHeader = ['Order ID', 'Order number', 'User ID', 'Order Status', '是否删除', '收货人', '收货联系电话', '收货地址']
         const filterVal = ['id', 'orderSn', 'userId', 'orderStatus', 'isDelete', 'consignee', 'mobile', 'address']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '订单信息')
         this.downloadLoading = false

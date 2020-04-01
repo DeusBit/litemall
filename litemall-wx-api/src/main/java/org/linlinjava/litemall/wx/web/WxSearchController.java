@@ -40,7 +40,7 @@ public class WxSearchController {
      * 如果用户已登录，则给出用户历史搜索记录；
      * 如果没有登录，则给出空历史搜索记录。
      *
-     * @param userId 用户ID，可选
+     * @param userId User ID，可选
      * @return 搜索页面信息
      */
     @GetMapping("index")
@@ -70,7 +70,7 @@ public class WxSearchController {
      * <p>
      * 当用户输入关键字一部分时，可以推荐系统中合适的关键字。
      *
-     * @param keyword 关键字
+     * @param keyword Keyword
      * @return 合适的关键字
      */
     @GetMapping("helper")
@@ -89,7 +89,7 @@ public class WxSearchController {
     /**
      * 清除用户搜索历史
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @return 清理是否成功
      */
     @PostMapping("clearhistory")

@@ -26,7 +26,7 @@ public class WxOrderController {
     /**
      * 订单列表
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param showType 显示类型，如果是0则是全部订单
      * @param page     分页页数
      * @param limit     分页大小
@@ -47,8 +47,8 @@ public class WxOrderController {
     /**
      * 订单详情
      *
-     * @param userId  用户ID
-     * @param orderId 订单ID
+     * @param userId  User ID
+     * @param orderId Order ID
      * @return 订单详情
      */
     @GetMapping("detail")
@@ -59,7 +59,7 @@ public class WxOrderController {
     /**
      * 提交订单
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ cartId：xxx, addressId: xxx, couponId: xxx, message: xxx, grouponRulesId: xxx,  grouponLinkId: xxx}
      * @return 提交订单操作结果
      */
@@ -71,7 +71,7 @@ public class WxOrderController {
     /**
      * 取消订单
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 取消订单操作结果
      */
@@ -83,9 +83,9 @@ public class WxOrderController {
     /**
      * 付款订单的预支付会话标识
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
-     * @return 支付订单ID
+     * @return 支付Order ID
      */
     @PostMapping("prepay")
     public Object prepay(@LoginUser Integer userId, @RequestBody String body, HttpServletRequest request) {
@@ -112,7 +112,7 @@ public class WxOrderController {
      *
      * @param request 请求内容
      * @param response 响应内容
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("pay-notify")
     public Object payNotify(HttpServletRequest request, HttpServletResponse response) {
@@ -122,7 +122,7 @@ public class WxOrderController {
     /**
      * 订单申请退款
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单退款操作结果
      */
@@ -134,7 +134,7 @@ public class WxOrderController {
     /**
      * 确认收货
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */
@@ -146,7 +146,7 @@ public class WxOrderController {
     /**
      * 删除订单
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */
@@ -158,8 +158,8 @@ public class WxOrderController {
     /**
      * 待评价订单商品信息
      *
-     * @param userId  用户ID
-     * @param orderId 订单ID
+     * @param userId  User ID
+     * @param orderId Order ID
      * @param goodsId 商品ID
      * @return 待评价订单商品信息
      */
@@ -173,7 +173,7 @@ public class WxOrderController {
     /**
      * 评价订单商品
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */

@@ -22,7 +22,7 @@
         <van-tag round type="warning" wx:if="{{!item.isCreator}}">{{item.creator}}发起</van-tag>
       </view>
       <view class="h">
-        <view class="l">订单编号：{{item.orderSn}}</view>
+        <view class="l">Order number：{{item.orderSn}}</view>
         <view class="r">{{item.orderStatusText}}</view>
       </view>
       <view class="j">

@@ -18,7 +18,7 @@
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
 
-      <el-table-column align="center" label="通知标题" prop="title" />
+      <el-table-column align="center" label="Notification title" prop="title" />
 
       <el-table-column align="center" label="通知详情" prop="content">
         <template slot-scope="scope">
@@ -46,10 +46,10 @@
     <!-- 添加或修改对话框 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="left" label-width="100px">
-        <el-form-item label="通知标题" prop="title">
+        <el-form-item label="Notification title" prop="title">
           <el-input v-model="dataForm.title" />
         </el-form-item>
-        <el-form-item label="通知内容" prop="content">
+        <el-form-item label="Notification content" prop="content">
           <editor v-model="dataForm.content" :init="editorInit" />
         </el-form-item>
       </el-form>
@@ -282,11 +282,11 @@ export default {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
-          '通知ID',
-          '通知标题',
+          'Notification ID',
+          'Notification title',
           '管理员ID',
           '添加时间',
-          '更新时间'
+          'Update time'
         ]
         const filterVal = [
           'id',

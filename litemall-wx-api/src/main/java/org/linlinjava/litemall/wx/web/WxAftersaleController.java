@@ -46,7 +46,7 @@ public class WxAftersaleController {
     /**
      * 售后列表
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param status   状态类型，如果是空则是全部
      * @param page     分页页数
      * @param limit    分页大小
@@ -84,7 +84,7 @@ public class WxAftersaleController {
     /**
      * 售后详情
      *
-     * @param orderId 订单ID
+     * @param orderId Order ID
      * @return 售后详情
      */
     @GetMapping("detail")
@@ -110,9 +110,9 @@ public class WxAftersaleController {
     /**
      * 申请售后
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param aftersale 用户售后信息
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("submit")
     public Object submit(@LoginUser Integer userId, @RequestBody LitemallAftersale aftersale) {
@@ -164,9 +164,9 @@ public class WxAftersaleController {
      *
      * 如果管理员还没有审核，用户可以取消自己的售后申请
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param aftersale 用户售后信息
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("cancel")
     public Object cancel(@LoginUser Integer userId, @RequestBody LitemallAftersale aftersale) {

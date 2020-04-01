@@ -3,7 +3,7 @@
 
     <!-- 查询和其他操作 -->
     <div class="filter-container">
-      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 200px;" placeholder="请输入用户ID"/>
+      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 200px;" placeholder="请输入User ID"/>
       <el-input v-model="listQuery.valueId" clearable class="filter-item" style="width: 200px;" placeholder="请输入商品ID"/>
       <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
       <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button>
@@ -13,7 +13,7 @@
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
       <el-table-column align="center" width="100px" label="收藏ID" prop="id" sortable/>
 
-      <el-table-column align="center" min-width="100px" label="用户ID" prop="userId"/>
+      <el-table-column align="center" min-width="100px" label="User ID" prop="userId"/>
 
       <el-table-column align="center" min-width="100px" label="商品ID" prop="valueId"/>
 
@@ -80,7 +80,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['用户ID', '商品ID', '添加时间']
+        const tHeader = ['User ID', '商品ID', '添加时间']
         const filterVal = ['userId', 'valueId', 'addTime']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '用户收藏信息')
         this.downloadLoading = false

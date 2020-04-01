@@ -17,13 +17,13 @@
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="操作动作" prop="action"/>
-      <el-table-column align="center" label="操作状态" prop="status">
+      <el-table-column align="center" label="Action" prop="action"/>
+      <el-table-column align="center" label="Operation status" prop="status">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status ? 'success' : 'error' ">{{ scope.row.status ? '成功' : '失败' }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="操作结果" prop="result"/>
+      <el-table-column align="center" label="Operation result" prop="result"/>
       <el-table-column align="center" label="备注信息" prop="comment"/>
 
     </el-table>

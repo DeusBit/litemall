@@ -20,7 +20,7 @@
 
 LOCK TABLES `litemall_ad` WRITE;
 /*!40000 ALTER TABLE `litemall_ad` DISABLE KEYS */;
-INSERT INTO `litemall_ad` VALUES (1,'合作 谁是你的菜','','http://yanxuan.nosdn.127.net/65091eebc48899298171c2eb6696fe27.jpg',1,'合作 谁是你的菜',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0),(2,'活动 美食节','','http://yanxuan.nosdn.127.net/bff2e49136fcef1fd829f5036e07f116.jpg',1,'活动 美食节',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0),(3,'活动 母亲节','','http://yanxuan.nosdn.127.net/8e50c65fda145e6dd1bf4fb7ee0fcecc.jpg',1,'活动 母亲节5',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0);
+INSERT INTO `litemall_ad` VALUES (1,'Cooperation who is your dish','','http://yanxuan.nosdn.127.net/65091eebc48899298171c2eb6696fe27.jpg',1,'Cooperation who is your dish',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0),(2,'Events Food Festival','','http://yanxuan.nosdn.127.net/bff2e49136fcef1fd829f5036e07f116.jpg',1,'Events Food Festival',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0),(3,'Activities Mother''s Day','','http://yanxuan.nosdn.127.net/8e50c65fda145e6dd1bf4fb7ee0fcecc.jpg',1,'Events Mother''s Day 5',NULL,NULL,1,'2018-02-01 00:00:00','2018-02-01 00:00:00',0);
 /*!40000 ALTER TABLE `litemall_ad` ENABLE KEYS */;
 UNLOCK TABLES;
 

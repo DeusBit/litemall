@@ -29,7 +29,7 @@
 
       <el-table-column align="center" label="活动链接" prop="link"/>
 
-      <el-table-column align="center" label="是否启用" prop="enabled">
+      <el-table-column align="center" label="Whether to enable" prop="enabled">
         <template slot-scope="scope">
           <el-tag :type="scope.row.enabled ? 'success' : 'error' ">{{ scope.row.enabled ? '启用' : '不启用' }}</el-tag>
         </template>
@@ -76,7 +76,7 @@
         <el-form-item label="活动链接" prop="link">
           <el-input v-model="dataForm.link"/>
         </el-form-item>
-        <el-form-item label="是否启用" prop="enabled">
+        <el-form-item label="Whether to enable" prop="enabled">
           <el-select v-model="dataForm.enabled" placeholder="请选择">
             <el-option :value="true" label="启用"/>
             <el-option :value="false" label="不启用"/>
@@ -310,7 +310,7 @@ export default {
           '广告图片',
           '广告位置',
           '活动链接',
-          '是否启用'
+          'Whether to enable'
         ]
         const filterVal = [
           'id',

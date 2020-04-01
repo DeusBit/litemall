@@ -18,9 +18,9 @@
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
 
-      <el-table-column align="center" label="优惠券ID" prop="id" sortable/>
+      <el-table-column align="center" label="Coupon ID" prop="id" sortable/>
 
-      <el-table-column align="center" label="优惠券名称" prop="name"/>
+      <el-table-column align="center" label="Coupon name" prop="name"/>
 
       <el-table-column align="center" label="介绍" prop="desc"/>
 
@@ -50,7 +50,7 @@
         <template slot-scope="scope">{{ scope.row.total != 0 ? scope.row.total : "不限" }}</template>
       </el-table-column>
 
-      <el-table-column align="center" label="状态" prop="status">
+      <el-table-column align="center" label="status" prop="status">
         <template slot-scope="scope">{{ scope.row.status | formatStatus }}</template>
       </el-table-column>
 
@@ -68,7 +68,7 @@
     <!-- 添加或修改对话框 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="优惠券名称" prop="name">
+        <el-form-item label="Coupon name" prop="name">
           <el-input v-model="dataForm.name"/>
         </el-form-item>
         <el-form-item label="介绍" prop="desc">
@@ -425,7 +425,7 @@ export default {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
-          '优惠券ID',
+          'Coupon ID',
           '名称',
           '内容',
           '标签',

@@ -51,7 +51,7 @@ import static org.linlinjava.litemall.wx.util.WxResponseCode.*;
  * 订单服务
  *
  * <p>
- * 订单状态：
+ * Order Status：
  * 101 订单生成，未支付；102，下单后未支付用户取消；103，下单后未支付超时系统自动取消
  * 201 支付完成，商家未发货；202，订单生产，已付款未发货，但是退款取消；
  * 301 商家发货，用户未确认；
@@ -111,7 +111,7 @@ public class WxOrderService {
     /**
      * 订单列表
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param showType 订单信息：
      *                 0，全部订单；
      *                 1，待付款；
@@ -170,8 +170,8 @@ public class WxOrderService {
     /**
      * 订单详情
      *
-     * @param userId  用户ID
-     * @param orderId 订单ID
+     * @param userId  User ID
+     * @param orderId Order ID
      * @return 订单详情
      */
     public Object detail(Integer userId, Integer orderId) {
@@ -240,7 +240,7 @@ public class WxOrderService {
      * 4. 商品货品库存减少;
      * 5. 如果是团购商品，则创建团购活动表项。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ cartId：xxx, addressId: xxx, couponId: xxx, message: xxx, grouponRulesId: xxx,  grouponLinkId: xxx}
      * @return 提交订单操作结果
      */
@@ -483,7 +483,7 @@ public class WxOrderService {
      * 3. 商品货品库存恢复；
      * 4. TODO 优惠券；
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 取消订单操作结果
      */
@@ -537,12 +537,12 @@ public class WxOrderService {
      * 付款订单的预支付会话标识
      * <p>
      * 1. 检测当前订单是否能够付款
-     * 2. 微信商户平台返回支付订单ID
+     * 2. 微信商户平台返回支付Order ID
      * 3. 设置订单付款状态
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
-     * @return 支付订单ID
+     * @return 支付Order ID
      */
     @Transactional
     public Object prepay(Integer userId, String body, HttpServletRequest request) {
@@ -661,7 +661,7 @@ public class WxOrderService {
      *
      * @param request  请求内容
      * @param response 响应内容
-     * @return 操作结果
+     * @return Operation result
      */
     @Transactional
     public Object payNotify(HttpServletRequest request, HttpServletResponse response) {
@@ -777,7 +777,7 @@ public class WxOrderService {
      * 1. 检测当前订单是否能够退款；
      * 2. 设置订单申请退款状态。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单退款操作结果
      */
@@ -822,7 +822,7 @@ public class WxOrderService {
      * 1. 检测当前订单是否能够确认收货；
      * 2. 设置订单确认收货状态。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */
@@ -865,7 +865,7 @@ public class WxOrderService {
      * 1. 检测当前订单是否可以删除；
      * 2. 删除订单。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */
@@ -903,8 +903,8 @@ public class WxOrderService {
     /**
      * 待评价订单商品信息
      *
-     * @param userId  用户ID
-     * @param orderId 订单ID
+     * @param userId  User ID
+     * @param orderId Order ID
      * @param goodsId 商品ID
      * @return 待评价订单商品信息
      */
@@ -935,7 +935,7 @@ public class WxOrderService {
      * <p>
      * 确认商品收货或者系统自动确认商品收货后7天内可以评价，过期不能评价。
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   订单信息，{ orderId：xxx }
      * @return 订单操作结果
      */

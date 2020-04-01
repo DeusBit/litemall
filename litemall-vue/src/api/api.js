@@ -250,7 +250,7 @@ export function topicRelated(query) {
   })
 }
 
-const SearchIndex='wx/search/index'; //搜索关键字
+const SearchIndex='wx/search/index'; //search for the keyword
 const SearchResult='wx/search/result'; //搜索结果
 const SearchHelper='wx/search/helper'; //搜索帮助
 const SearchClearHistory='wx/search/clearhistory'; //搜索历史清楚

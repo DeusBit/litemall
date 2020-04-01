@@ -3,7 +3,7 @@
 
     <!-- 查询和其他操作 -->
     <div class="filter-container">
-      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 200px;" placeholder="请输入用户ID"/>
+      <el-input v-model="listQuery.userId" clearable class="filter-item" style="width: 200px;" placeholder="请输入User ID"/>
       <el-input v-model="listQuery.keyword" clearable class="filter-item" style="width: 200px;" placeholder="请输入搜索历史关键字"/>
       <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">查找</el-button>
       <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出</el-button>
@@ -13,9 +13,9 @@
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
       <el-table-column align="center" width="100px" label="搜索ID" prop="id" sortable/>
 
-      <el-table-column align="center" min-width="100px" label="用户ID" prop="userId"/>
+      <el-table-column align="center" min-width="100px" label="User ID" prop="userId"/>
 
-      <el-table-column align="center" min-width="100px" label="关键字" prop="keyword"/>
+      <el-table-column align="center" min-width="100px" label="Keyword" prop="keyword"/>
 
       <el-table-column align="center" min-width="100px" label="添加时间" prop="addTime"/>
     </el-table>
@@ -73,7 +73,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['用户ID', '搜索历史关键字', '添加时间']
+        const tHeader = ['User ID', '搜索历史关键字', '添加时间']
         const filterVal = ['userId', 'keyword', 'addTime']
         excel.export_json_to_excel2(
           tHeader,

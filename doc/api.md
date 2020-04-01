@@ -1266,7 +1266,7 @@ API应该存在版本控制，以保证兼容性。
     
     isNew: 是否新品，true或者false
     isHot: 是否热卖商品，true或者false
-    keyword: 关键字，如果设置则查询是否匹配关键字
+    keyword: Keyword，如果设置则查询是否匹配关键字
     brandId: 品牌商ID，如果设置则查询品牌商所属商品
     categoryId: 商品分类ID，如果设置则查询分类所属商品
     page: 请求页码
@@ -1786,7 +1786,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
     
-    orderId： 订单ID
+    orderId： Order ID
     
 响应结果
 
@@ -1890,7 +1890,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
     
 响应结果
 
@@ -1919,7 +1919,7 @@ API应该存在版本控制，以保证兼容性。
 
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
 
 响应结果
 
@@ -1952,7 +1952,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
     
 响应结果
 
@@ -1977,7 +1977,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
     
 响应结果
 
@@ -2007,7 +2007,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
     
 响应结果
 
@@ -2033,7 +2033,7 @@ API应该存在版本控制，以保证兼容性。
     
 请求参数
 
-    orderId: 订单ID
+    orderId: Order ID
     goodsId: 商品ID
     
 响应结果
@@ -2182,7 +2182,7 @@ API应该存在版本控制，以保证兼容性。
         data: {
             id: 收货地址ID，
             name: 收货人，
-            tel: 手机号
+            tel: phone number
             province: 省级行政区域,
             city: 市级行政区域,
             county: 区级行政区域,
@@ -2212,7 +2212,7 @@ API应该存在版本控制，以保证兼容性。
 
     id: 收货地址ID，如果是0则是添加，否则是更新
     name: 收货人，
-    tel: 手机号
+    tel: phone number
     province: 省级行政区域,
     city: 市级行政区域,
     county: 区级行政区域,
@@ -2832,7 +2832,7 @@ API应该存在版本控制，以保证兼容性。
 
 请求参数
     
-    couponId： 可领取优惠券ID
+    couponId： 可领取Coupon ID
     
 例如
 

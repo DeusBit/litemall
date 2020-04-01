@@ -17,7 +17,7 @@
       <van-cell title="昵称" to="/user/information/setNickname" :value="nickName" isLink/>
       <van-cell title="性别" :value="genderText" @click="showSex = true" isLink/>
       <van-cell title="密码设置" to="/user/information/setPassword" isLink/>
-      <van-cell title="手机号" to="/user/information/setMobile" :value="mobile" isLink></van-cell>
+      <van-cell title="phone number" to="/user/information/setMobile" :value="mobile" isLink></van-cell>
     </van-cell-group>
 
     <van-button size="large" class="user_quit" @click="loginOut">退出当前账户</van-button>

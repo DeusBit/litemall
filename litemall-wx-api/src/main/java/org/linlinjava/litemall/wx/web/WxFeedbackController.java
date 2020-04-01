@@ -64,9 +64,9 @@ public class WxFeedbackController {
     /**
      * 添加意见反馈
      *
-     * @param userId   用户ID
+     * @param userId   User ID
      * @param feedback 意见反馈
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("submit")
     public Object submit(@LoginUser Integer userId, @RequestBody LitemallFeedback feedback) {

@@ -7,10 +7,10 @@
         <el-form-item label="商品ID" prop="id">
           <el-input v-model="goods.id" disabled />
         </el-form-item>
-        <el-form-item label="商品名称" prop="name">
+        <el-form-item label="Product name" prop="name">
           <el-input v-model="goods.name" />
         </el-form-item>
-        <el-form-item label="商品编号" prop="goodsSn">
+        <el-form-item label="Product Number" prop="goodsSn">
           <el-input v-model="goods.goodsSn" />
         </el-form-item>
         <el-form-item label="市场售价" prop="counterPrice">
@@ -72,7 +72,7 @@
           <el-input v-model="goods.unit" placeholder="件 / 个 / 盒" />
         </el-form-item>
 
-        <el-form-item label="关键字">
+        <el-form-item label="Keyword">
           <el-tag v-for="tag in keywords" :key="tag" closable type="primary" @close="handleClose(tag)">
             {{ tag }}
           </el-tag>

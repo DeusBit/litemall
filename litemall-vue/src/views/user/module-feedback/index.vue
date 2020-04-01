@@ -1,9 +1,9 @@
 <template>
   <div>
-<van-cell-group title="反馈类型">
+<van-cell-group title="Feedback type">
     <van-cell class="order-coupon" :title="type" is-link arrow-direction="down" @click="showList = true" />
 </van-cell-group>
-<van-cell-group title="反馈内容">
+<van-cell-group title="Feedback content">
 
   <van-field v-model="content" 
     clearable autosize center

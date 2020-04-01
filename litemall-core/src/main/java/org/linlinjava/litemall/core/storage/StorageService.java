@@ -40,7 +40,7 @@ public class StorageService {
      *
      * @param inputStream   文件输入流
      * @param contentLength 文件长度
-     * @param contentType   文件类型
+     * @param contentType   file type
      * @param fileName      文件索引名
      */
     public LitemallStorage store(InputStream inputStream, long contentLength, String contentType, String fileName) {

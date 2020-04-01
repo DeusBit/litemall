@@ -17,7 +17,7 @@
   <view class="orders">
     <navigator url="../grouponDetail/grouponDetail?id={{item.id}}" class="order" open-type="navigate" wx:for="{{orderList}}" wx:key="id">
       <view class="h">
-        <view class="l">订单编号：{{item.orderSn}}</view>
+        <view class="l">Order number：{{item.orderSn}}</view>
         <view class="r">{{item.orderStatusText}}</view>
       </view>
       <view class="j">
@@ -41,7 +41,7 @@
       <view class="b">
         <view class="l">实付：￥{{item.actualPrice}}</view>
         <view class="capsule-tag">
-          <zan-capsule color="#a78845" leftText="状态" rightText="{{item.joinerCount>=item.rules.discountMember?'已达成':'团购中'}}" />
+          <zan-capsule color="#a78845" leftText="status" rightText="{{item.joinerCount>=item.rules.discountMember?'已达成':'团购中'}}" />
         </view>
         <view class="capsule-tag">
           <zan-capsule color="#a78845" leftText="发起" rightText="{{item.creator}}" wx:if="{{!item.isCreator}}" />

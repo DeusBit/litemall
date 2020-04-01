@@ -36,7 +36,7 @@ public class WxAddressController extends GetRegionService {
 	/**
 	 * 用户收货地址列表
 	 *
-	 * @param userId 用户ID
+	 * @param userId User ID
 	 * @return 收货地址列表
 	 */
 	@GetMapping("list")
@@ -51,7 +51,7 @@ public class WxAddressController extends GetRegionService {
 	/**
 	 * 收货地址详情
 	 *
-	 * @param userId 用户ID
+	 * @param userId User ID
 	 * @param id     收货地址ID
 	 * @return 收货地址详情
 	 */
@@ -119,7 +119,7 @@ public class WxAddressController extends GetRegionService {
 	/**
 	 * 添加或更新收货地址
 	 *
-	 * @param userId  用户ID
+	 * @param userId  User ID
 	 * @param address 用户收货地址
 	 * @return 添加或更新操作结果
 	 */
@@ -162,7 +162,7 @@ public class WxAddressController extends GetRegionService {
 	/**
 	 * 删除收货地址
 	 *
-	 * @param userId  用户ID
+	 * @param userId  User ID
 	 * @param address 用户收货地址，{ id: xxx }
 	 * @return 删除操作结果
 	 */

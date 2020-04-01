@@ -37,7 +37,7 @@ public class WxFootprintController {
     /**
      * 删除用户足迹
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body   请求内容， { id: xxx }
      * @return 删除操作结果
      */

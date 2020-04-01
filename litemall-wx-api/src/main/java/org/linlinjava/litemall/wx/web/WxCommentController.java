@@ -82,8 +82,8 @@ public class WxCommentController {
     /**
      * 发表评论
      *
-     * @param userId  用户ID
-     * @param comment 评论内容
+     * @param userId  User ID
+     * @param comment Comments
      * @return 发表评论操作结果
      */
     @PostMapping("post")

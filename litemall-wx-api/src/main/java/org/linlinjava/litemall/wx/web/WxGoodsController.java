@@ -85,7 +85,7 @@ public class WxGoodsController {
 	 * 用户可以不登录。
 	 * 如果用户登录，则记录用户足迹以及返回用户收藏信息。
 	 *
-	 * @param userId 用户ID
+	 * @param userId User ID
 	 * @param id     商品ID
 	 * @return 商品详情
 	 */
@@ -235,10 +235,10 @@ public class WxGoodsController {
 	 *
 	 * @param categoryId 分类类目ID，可选
 	 * @param brandId    品牌商ID，可选
-	 * @param keyword    关键字，可选
+	 * @param keyword    Keyword，可选
 	 * @param isNew      是否新品，可选
 	 * @param isHot      是否热买，可选
-	 * @param userId     用户ID
+	 * @param userId     User ID
 	 * @param page       分页页数
 	 * @param limit       分页大小
 	 * @param sort       排序方式，支持"add_time", "retail_price"或"name"

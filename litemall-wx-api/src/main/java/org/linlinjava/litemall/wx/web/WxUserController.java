@@ -31,7 +31,7 @@ public class WxUserController {
      * <p>
      * 目前是用户订单统计信息
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @return 用户个人页面数据
      */
     @GetMapping("index")

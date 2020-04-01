@@ -72,13 +72,14 @@ note:
 * New product launch, popular recommendation
 * Coupon list, coupon selection
 * Group buy
-* search for
+* Search for
 * Product details, product reviews, product sharing
-* shopping cart
+* Shopping cart
 * Order
 * Order list, order details, order after sales
 * Address, collection, footprint, feedback
 * Customer Service
+
 ### Management platform features
 
 * Member Management

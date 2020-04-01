@@ -18,9 +18,9 @@
 
       <el-table-column align="center" label="手机号码" prop="mobile"/>
 
-      <el-table-column align="center" label="反馈类型" prop="feedType"/>
+      <el-table-column align="center" label="Feedback type" prop="feedType"/>
 
-      <el-table-column align="center" label="反馈内容" prop="content"/>
+      <el-table-column align="center" label="Feedback content" prop="content"/>
 
       <el-table-column align="center" label="反馈图片" prop="picUrls">
         <template slot-scope="scope">
@@ -82,7 +82,7 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['反馈ID', '用户名称', '反馈内容', '反馈图片列表', '反馈时间']
+        const tHeader = ['反馈ID', 'user name', 'Feedback content', '反馈图片列表', '反馈时间']
         const filterVal = ['id', 'username', 'content', 'picUrls', 'addTime']
         excel.export_json_to_excel2(tHeader, this.list, filterVal, '意见反馈信息')
         this.downloadLoading = false

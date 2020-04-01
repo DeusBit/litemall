@@ -97,7 +97,7 @@ public class QCodeService {
      *
      * @param qrCodeImg  二维码图片
      * @param goodPicUrl 商品图片地址
-     * @param goodName   商品名称
+     * @param goodName   Product name
      * @return
      * @throws IOException
      */

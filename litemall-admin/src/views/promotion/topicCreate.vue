@@ -2,13 +2,13 @@
   <div class="app-container">
 
     <el-form ref="topic" :rules="rules" :model="topic" status-icon label-position="left" label-width="100px" style="width: 800px; margin-left:50px;">
-      <el-form-item label="专题标题" prop="title">
+      <el-form-item label="Topic title" prop="title">
         <el-input v-model="topic.title"/>
       </el-form-item>
-      <el-form-item label="专题子标题" prop="subtitle">
+      <el-form-item label="Topic subtitle" prop="subtitle">
         <el-input v-model="topic.subtitle"/>
       </el-form-item>
-      <el-form-item label="专题图片" prop="picUrl">
+      <el-form-item label="Thematic pictures" prop="picUrl">
         <el-upload
           :headers="headers"
           :action="uploadPath"
@@ -41,7 +41,7 @@
               <img :src="scope.row.picUrl" width="60">
             </template>
           </el-table-column>
-          <el-table-column align="center" label="商品名称" prop="name"/>
+          <el-table-column align="center" label="Product name" prop="name"/>
           <el-table-column align="center" label="商品介绍" prop="brief"/>
           <el-table-column align="center" label="操作" class-name="small-padding fixed-width">
             <template slot-scope="scope">
@@ -70,7 +70,7 @@
               <img :src="scope.row.picUrl" width="40">
             </template>
           </el-table-column>
-          <el-table-column align="center" label="商品名称" prop="name"/>
+          <el-table-column align="center" label="Product name" prop="name"/>
         </el-table>
         <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
 

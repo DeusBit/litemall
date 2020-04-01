@@ -170,9 +170,9 @@ public class WxCouponController {
     /**
      * 优惠券领取
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body 请求内容， { couponId: xxx }
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("receive")
     public Object receive(@LoginUser Integer userId, @RequestBody String body) {
@@ -248,9 +248,9 @@ public class WxCouponController {
     /**
      * 优惠券兑换
      *
-     * @param userId 用户ID
+     * @param userId User ID
      * @param body 请求内容， { code: xxx }
-     * @return 操作结果
+     * @return Operation result
      */
     @PostMapping("exchange")
     public Object exchange(@LoginUser Integer userId, @RequestBody String body) {
